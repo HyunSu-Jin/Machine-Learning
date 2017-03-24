@@ -102,3 +102,38 @@ b = tf.Variable(tf.random_normal([1]),name="bias")
 10. result
 
 ![lab4-1](/S1_lab4-1/result/lab4-1_result.png)
+
+
+## Lab4-2
+Loading Data from File
+1. 일반적으로 .csv 형식 파일으로부터 데이터를 읽어들이고자 하는 경우 numpy lib 이용해 XY matrix을 만들고 여기서 부터 input data : X , Output data : Y 를 정의한다.
+2. 그러나, 읽어들어야 할 .csv 파일이 너무 많아 파일을 모두 읽어들이기 위해 요구되는 메모리가 부족한 상황이 생긴 경우, 다음과 같은 Queue Running 을 이용한다
+### Queue Running
+![lab4-1](/S1_lab4-2/result/queueRunning.png)
+
+1. A,B,C,... 등의 대용량의 데이터를 읽어 들인다.(셔플가능)
+2. 읽어들인 데이터를 Queue에 저장한다.
+3. Reader를 이용해 큐에 접근하여 한개씩 데이터를 읽어들인다.
+4. 여기서 읽어들일 데이터 형식을 다음과 같이 지정한다.
+<pre><code>
+record_defaults = [[0.],[0.],[0.],[0.]]
+xy = tf.decode_csv(value,record_defaults=record_defaults)
+</code></pre>
+5. Decoder에 의해 파싱된 데이터는 별도의 Queue에 다시 저장된다.
+6. 저장된 데이터는 batch에 의해 임의의 size만큼 data를 뽑아낸다.
+7. 트레이닝훈련을 진행한 후, 아래의 코드로 결과데이터를 예측한다.
+<pre><code>
+hypo1 = sess.run(hypothesis,feed_dict={
+	X : [[70,60,50]]
+	})
+hypo2 = sess.run(hypothesis,feed_dict={
+	X : [[40,30,10],[90,95,92]]
+	})
+
+print("First case : ",hypo1)
+print("Second case :",hypo2)
+</code></pre>
+8. 실행결과
+![lab4-1](/S1_lab4-2/result/lab4-2_result.png)
+
+
