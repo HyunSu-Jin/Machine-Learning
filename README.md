@@ -1,7 +1,6 @@
 # Machine-Learning
 - 모두를 위한 딥러닝 강좌 + 개인프로젝트 저장
 - https://www.youtube.com/user/hunkims
-=================================================================
 
 ## Lab1
 Tensor의 정의, Tensor간 add,mul,sub등 연산을 수행하는 방법
@@ -20,3 +19,4 @@ for step in range(2001):
 		print(step,cost_val,W_val,b_val)
 </code></pre>
 6. result
+![lab2](/S1_lab2/result/lab2_result.png)
