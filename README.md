@@ -23,8 +23,8 @@ for step in range(2001):
 ![lab2](/S1_lab2/result/lab2_result.png)
 
 ## Lab3
-<pre><code>
 tensorflow optimizer의 동작원리
+<pre><code>
 learing_rate = 0.1
 gradient = tf.reduce_mean(X * (W*X - Y))
 descent = W - learing_rate * gradient
