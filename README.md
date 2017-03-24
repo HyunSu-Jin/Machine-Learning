@@ -95,6 +95,8 @@ Shape[N,M] 의 Tensor로써 나타내야 한다.
 W = tf.Variable(tf.random_normal([3,1]),name="weight")
 b = tf.Variable(tf.random_normal([1]),name="bias")
 </code></pre>
-위와 같은 형식을 이용해서 multi-variable에 대한 linear regression을 유연하게 구현하여 insteresting value인 1) cost , 2) hypothesis 를 다음과 같이 얻을 수 있다.
+위와 같은 형식을 이용해서 multi-variable에 대한 linear regression을 유연하게 구현하여 
+insteresting value인 1) cost  2) hypothesis 를 다음과 같이 얻을 수 있다.
 10. result
+
 ![lab4-1](/S1_lab4-1/result/lab4-1_result.png)
