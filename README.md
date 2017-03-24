@@ -38,7 +38,7 @@ update = W.assign(descent)
 ## Lab4-1
 Multi-variable linear regression
 1. 원하는 데이터 Y가 여러개의 변수에 의해 결정되는 경우.
-> 즉, Y = f(x1,x2,x3)와 같은 형태
+   즉, Y = f(x1,x2,x3)와 같은 형태
 2. 이러한 경우 hypothesis = x1w1 + x2w2 + x3w3 +b 꼴로 나타낸다.
 3. 위 솔루션과 동일한 방법으로 multi-variable 문제를 해결할 수는 있지만 다음과 같이 코드가 정적이며 dynamic한 input에 대해 프로그램이 유연하지 못하다.
 
@@ -67,7 +67,23 @@ hypothesis = X1 * W1 + X2 * W2 + X3 * W3 +b
 5. Input variable로써 N개의 multi-variable,
 6. Output variable로써 M개의 multi-variable,
 7. H개의 # of instance 가 주어진 경우
+<pre><code>
+x_data = [
+	[73,80,75],
+	[93,88,93],
+	[89,91,90],
+	[96,98,100],
+	[73,66,70]
+]
 
+y_data = [[152],[185],[180],[196],[142]]
+
+X = tf.placeholder(tf.float32,shape=[None,3])
+Y = tf.placeholder(tf.float32,shape=[None,1])
+
+W = tf.Variable(tf.random_normal([3,1]),name="weight")
+b = tf.Variable(tf.random_normal([1]),name="bias")
+</code></pre>
 이를 (MxN) * (NxM) = (HxM) 꼴의 행렬연산으로 표현할 수 있다.
 8. H(X) = XW +b
 <pre><code>
@@ -75,7 +91,8 @@ hypothesis = tf.matmul(X,W)+b
 </code></pre>
 그러므로, 각 multi-variable에 대한 weight matrix ,W는
 Shape[N,M] 의 Tensor로써 나타내야 한다.
-9. Example,
+
+9. Example
 <pre><code>
 W = tf.Variable(tf.random_normal([3,1]),name="weight")
 b = tf.Variable(tf.random_normal([1]),name="bias")
