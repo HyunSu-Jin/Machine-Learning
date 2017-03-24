@@ -19,4 +19,5 @@ for step in range(2001):
 		print(step,cost_val,W_val,b_val)
 </code></pre>
 6. result
+
 ![lab2](/S1_lab2/result/lab2_result.png)
