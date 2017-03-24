@@ -34,6 +34,3 @@ update = W.assign(descent)
 2. W := W - learning_rate * 기울기로 변경된다.
 > 즉, cost(W),cost function의 기울기가 점차 감소되는 방향으로 W값이 이동한다.
 > 기울기의 값이 0이 되는지점. 즉, cost(W)를 미분한 값이 0이 되는지점에서 optimal value를 얻는다.
-3. result
-
-![lab3](/S1_lab3/result/lab3_result.png)
