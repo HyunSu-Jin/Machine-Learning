@@ -13,9 +13,10 @@ supervised learning : linear regression을 수행.
 3. cost(W,b) = tf.reduce_mean(tf.square(hypothesis-Y)) 이며, 이를 최소화시키는것이 목적
 4. optimizer 를 GradientDescentOptimizer 사용 > cost를 minimize
 5. Conduct trainning
-
-	for step in range(2001):
-		cost_val, W_val,b_val,_ = sess.run([cost,W,b,train],feed_dict={X:[1,2,3,4,5],Y:[2.1,3.1,4.1,5.1,6.1]})
-		if(step %20 ==0):
-			print(step,cost_val,W_val,b_val)
-*result
+<pre><code>
+for step in range(2001):
+	cost_val, W_val,b_val,_ = sess.run([cost,W,b,train],feed_dict={X:[1,2,3,4,5],Y:[2.1,3.1,4.1,5.1,6.1]})
+	if(step %20 ==0):
+		print(step,cost_val,W_val,b_val)
+</code></pre>
+6. result
