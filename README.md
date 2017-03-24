@@ -63,6 +63,7 @@ b = tf.Variable(tf.random_normal([1]),name="bias")
 hypothesis = X1 * W1 + X2 * W2 + X3 * W3 +b
 </code></pre>
 따라서,
+
 5. Input variable로써 N개의 multi-variable,
 6. Output variable로써 M개의 multi-variable,
 7. H개의 # of instance 가 주어진 경우
@@ -84,19 +85,23 @@ W = tf.Variable(tf.random_normal([3,1]),name="weight")
 b = tf.Variable(tf.random_normal([1]),name="bias")
 </code></pre>
 이를 (MxN) * (NxM) = (HxM) 꼴의 행렬연산으로 표현할 수 있다.
+
 8. H(X) = XW +b
 <pre><code>
 hypothesis = tf.matmul(X,W)+b
 </code></pre>
 그러므로, 각 multi-variable에 대한 weight matrix ,W는
 Shape[N,M] 의 Tensor로써 나타내야 한다.
+
 9. Example
+
 <pre><code>
 W = tf.Variable(tf.random_normal([3,1]),name="weight")
 b = tf.Variable(tf.random_normal([1]),name="bias")
 </code></pre>
 위와 같은 형식을 이용해서 multi-variable에 대한 linear regression을 유연하게 구현하여 
 insteresting value인 1) cost  2) hypothesis 를 다음과 같이 얻을 수 있다.
+
 10. result
 
 ![lab4-1](/S1_lab4-1/result/lab4-1_result.png)
