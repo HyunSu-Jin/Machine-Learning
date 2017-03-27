@@ -141,4 +141,33 @@ print("Second case :",hypo2)
 8. 실행결과
 ![lab4-1](/lab4-2/result/lab4-2_result.png)
 
-
+## Lab5
+Logistic(regression) classifier
+주어진 supervised leaning이 Input variables X1,X2,...Xn에 대한 Binary Classification인 경우, 다음과 같은 방법으로 모델을 구현할 수 있다.
+1. linear regression인 경우, hypothesis, 예측값을 다음과 같이 구현하였다.
+<pre><code>
+hypothesis = tf.matmul(X,W)+b
+</code></pre>
+그런데, classifier에 경우는 위 수식이 적절치 않은데 그 이유는 다음과 같다.
+output의 결과인 Y가 0,1로 Binary한 데 반해, X값은 범위가 매우 다양하다. 따라서, (X,Y)가 (3,1) (100,1) (1000,1) 이 성립할 수 있다. 이 때, linear regression에서 사용하는 hypothesis를 사용하면 lienar하게 함수가 그려지기 때문에 Y를 예측하기 위한 적절한 X가 구해지지 않는다.
+2. 따라서, 다음과 같은 sigmod 꼴의 hypothesis를 구현한다.
+<pre><code>
+hypothesis = tf.sigmoid(tf.matmul(X,W)+b)
+</code></pre>
+이 모델은 z = W*X , hypothesis,g(z) = 1 / 1+ e^-z 꼴로 표현되며 0 < g(z) <1 의 값을 가진다.
+3. 따라서, 위 hypothesis를 통해 다음과 같은 cost function을 도출할 수 있다.
+cost function은 실제값,Y 와 예측값,hypothesis간의 difference를 의미하는 것인데, Y =1 인경우 cost(g(z)) = -log(g(z)) , Y = 0인 경우 cost(g(z)) = -log(1-g(z))로써 표현 할 수있다. 위 수식은 그래프를 그려봄으로써 왜 이 모습을 띄게 되었는지 이해할 수 있다.
+<pre><code>
+cost = -tf.reduce_mean(Y * tf.log(hypothesis) + (1-Y)*tf.log(1-hypothesis))
+</code></pre>
+4. 모델의 학습정도를 파악하기 위해 다음과 같은 파라미터를 정의하고 trainning data set를 입력했다.(.csv형식 파일)
+<pre><code>
+predicted = tf.cast(hypothesis > 0.5,dtype=tf.float32)
+accuracy = tf.reduce_mean(tf.cast( tf.equal(predicted,Y) ,dtype=tf.float32))
+h , c, a = sess.run([hypothesis,predicted,accuracy],feed_dict={
+		X : x_data,
+		Y: y_data
+		})
+</code></pre>
+5. 실행결과
+![lab5](/lab5/result/lab5-result2)
