@@ -21,7 +21,7 @@ for step in range(2001):
 </code></pre>
 6. result
 
-![lab2](/S1_lab2/result/lab2_result.png)
+![lab2](/lab2/result/lab2_result.png)
 
 ## Lab3
 tensorflow optimizer의 동작원리
@@ -105,7 +105,8 @@ insteresting value인 1) cost  2) hypothesis 를 다음과 같이 얻을 수 있
 
 10. result
 
-![lab4-1](/S1_lab4-1/result/lab4-1_result.png)
+
+![lab4-1](/lab4-1/result/lab4-1_result.png)
 
 
 ## Lab4-2
@@ -113,7 +114,7 @@ Loading Data from File
 1. 일반적으로 .csv 형식 파일으로부터 데이터를 읽어들이고자 하는 경우 numpy lib 이용해 XY matrix을 만들고 여기서 부터 input data : X , Output data : Y 를 정의한다.
 2. 그러나, 읽어들어야 할 .csv 파일이 너무 많아 파일을 모두 읽어들이기 위해 요구되는 메모리가 부족한 상황이 생긴 경우, 다음과 같은 Queue Running 을 이용한다
 ### Queue Running
-![lab4-1](/S1_lab4-2/result/queueRunning.png)
+![lab4-1](/lab4-2/result/queueRunning.png)
 
 1. A,B,C,... 등의 대용량의 데이터를 읽어 들인다.(셔플가능)
 2. 읽어들인 데이터를 Queue에 저장한다.
@@ -138,6 +139,6 @@ print("First case : ",hypo1)
 print("Second case :",hypo2)
 </code></pre>
 8. 실행결과
-![lab4-1](/S1_lab4-2/result/lab4-2_result.png)
+![lab4-1](/lab4-2/result/lab4-2_result.png)
 
 
