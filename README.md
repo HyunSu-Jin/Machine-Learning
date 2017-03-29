@@ -170,7 +170,7 @@ h , c, a = sess.run([hypothesis,predicted,accuracy],feed_dict={
 		})
 </code></pre>
 5. 실행결과
-![lab5](/lab5/result/lab5_result2.png)
+![lab5_2](/lab5/result/lab5_result2.png)
 
 ## Lab6
 Multinomial Classifier
