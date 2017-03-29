@@ -182,6 +182,7 @@ hypothesis = tf.nn.softmax(tf.matmul(X,W) +b)
 </code></pre>
 이 방법으로, Z = WX로 구해진 상수 Z는 ex) 2.0 1.0 0 다음과 같이 softmax된다.
 [1,0,0] ,one_hot
+
 2. cost function
 D(L,S) = Mean of -( L * logS )
 <pre><code>
@@ -195,4 +196,4 @@ a = sess.run(hypothesis,feed_dict={
 	print(a,sess.run(tf.argmax(a,axis=1))) 
 </code></pre>
 4. 실행결과
-![lab6](/lab6/result/lab6_result)
+![lab6](/lab6/result/lab6_result.png)
