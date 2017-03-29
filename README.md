@@ -172,7 +172,7 @@ h , c, a = sess.run([hypothesis,predicted,accuracy],feed_dict={
 5. 실행결과
 ![lab5_2](/lab5/result/lab5_result2.png)
 
-## Lab6
+## Lab6-1
 Multinomial Classifier
 위와 같은 P Or F 로 구분되는 Binary classifier가 아니라 a,b,c,d와 같이 구분되는 classification을 multinomial classifier라고 한다.binary가 아니므로 ouput의 결과인 Y는 1차원 vector를 띄게된다. 이를 위해 vector의 길이만큼 binary경우에서 처럼 sigmoid(X or not)를 구해도 해결이 되지만 복잡하다.
 이를 위해 softmax라는 방법을 아래와 같이 적용한다.
@@ -196,4 +196,29 @@ a = sess.run(hypothesis,feed_dict={
 	print(a,sess.run(tf.argmax(a,axis=1))) 
 </code></pre>
 4. 실행결과
-![lab6](/lab6/result/lab6_result.png)
+![lab6-1](/lab6/result/lab6_result.png)
+
+## Lab 6-2
+Fancy Softmax classifier
+multinomial classifier에서 tensorflow 라이브러리를 사용하여 tensor의 shape을 조작하는 법과 cost function을 간단히 조작하는 방법에 대해 알아보자.
+
+1. softmax_cross_entropy
+cross_entropy 방법의 cost function을 D(L,S) = Mean of L * -log(S) 으로 구하지 않고, 라이브러리를 활용한다.
+<pre><code>
+logits = tf.matmul(X,W) + b # z = WX
+hypothesis = tf.nn.softmax(logits) # predict
+
+cost_i = tf.nn.softmax_cross_entropy_with_logits(logits=logits,labels=Y_one_hot)
+cost = tf.reduce_mean(cost_i)
+</code></pre>
+
+2. .csv형식 파일에서 로드한 y_data를 Y_one_hot으로 변경시킨다.
+<pre><code>
+Y =tf.placeholder(tf.int32,shape=[None,1])
+# transformation : Y to one_hot
+Y_one_hot = tf.one_hot(Y,nb_classes) # [ [0],[1]] > [[[10000000]], [[0100000]]]
+Y_one_hot = tf.reshape(Y_one_hot,[-1,nb_classes])
+</code></pre>
+
+3. Model을 훈련하고, accuracy를 확인한다.
+![lab6-2](/lab6-2/result/lab6-2_result.png)
