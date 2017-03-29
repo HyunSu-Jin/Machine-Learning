@@ -171,3 +171,28 @@ h , c, a = sess.run([hypothesis,predicted,accuracy],feed_dict={
 </code></pre>
 5. 실행결과
 ![lab5](/lab5/result/lab5_result2.png)
+
+## Lab6
+Multinomial Classifier
+위와 같은 P Or F 로 구분되는 Binary classifier가 아니라 a,b,c,d와 같이 구분되는 classification을 multinomial classifier라고 한다.binary가 아니므로 ouput의 결과인 Y는 1차원 vector를 띄게된다. 이를 위해 vector의 길이만큼 binary경우에서 처럼 sigmoid(X or not)를 구해도 해결이 되지만 복잡하다.
+이를 위해 softmax라는 방법을 아래와 같이 적용한다.
+1. hypothesis
+<pre><code>
+hypothesis = tf.nn.softmax(tf.matmul(X,W) +b)
+</code></pre>
+이 방법으로, Z = WX로 구해진 상수 Z는 ex) 2.0 1.0 0 다음과 같이 softmax된다.
+[1,0,0] ,one_hot
+2. cost function
+D(L,S) = Mean of -( L * logS )
+<pre><code>
+cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(hypothesis) , axis=1))
+</code></pre>
+3. 실행결과 예측
+<pre><code>
+a = sess.run(hypothesis,feed_dict={
+		X : [[1,11,7,9],[1,3,4,3],[1,1,0,1]]
+		})
+	print(a,sess.run(tf.argmax(a,axis=1))) 
+</code></pre>
+4. 실행결과
+![lab6](/lab6/result/lab6_result)
