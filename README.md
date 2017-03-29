@@ -196,7 +196,7 @@ a = sess.run(hypothesis,feed_dict={
 	print(a,sess.run(tf.argmax(a,axis=1))) 
 </code></pre>
 4. 실행결과
-![lab6-1](/lab6/result/lab6_result.png)
+![lab6-1](/lab6-1/result/lab6-1_result.png)
 
 ## Lab 6-2
 Fancy Softmax classifier
