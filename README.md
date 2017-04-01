@@ -226,6 +226,7 @@ Y_one_hot = tf.reshape(Y_one_hot,[-1,nb_classes])
 
 ## Lab 7-1
 Training data set 과 Test data set 간 구별.
+
 머신러닝과정은 두개의 step인 Training과 Test로 나뉘는데, 트레이닝 데이타로 모델을 Test하는 경우 모델은 트레이닝 데이터에 overfitting 되어있을 가능성이 높으므로 테스트 결과를 신뢰 할 수 없다. 따라서, 다음 코드와 같이 머신러닝과정에 사용하는 트레이닝데이터, 테스트 데이터를 명확히 구분지어야 한다.
 <pre><code>
 x_data = [[1,2,1],[1,3,2],[1,3,4],[1,5,5],[1,7,5],[1,2,5],[1,6,6],[1,7,7]]
