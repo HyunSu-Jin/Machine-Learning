@@ -270,7 +270,7 @@ regularization_strength값이 클 수록 overfitting 되는 정도가 적으나,
 
 # Lab7-2
 MNIST data
-MINIST data는 불규칙적인 0~9를 나타내는 손글씨를 정확한 0~9로 인식하는 머신러닝 예제이다.
+MINIST data는 불규칙적인 0-9를 나타내는 손글씨를 정확한 0-9로 인식하는 머신러닝 예제이다.
 이 과정에서 training data set과 test data set를 별도로 분리하여 학습과 테스트를 진행하며, 다음과 같은 단어들에 대한 개념이 필요하다.
 
 - epoch
