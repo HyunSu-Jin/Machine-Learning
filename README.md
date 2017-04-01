@@ -253,7 +253,8 @@ learing_rate가 지나치게 크면, 학습과정에서 W가 cost fucntion의 �
 - learing_rate가 지나치게 작으면, 학습속도가 굉장히 오래걸리며, cost function이 linear regression 경우와 같이 Convex 꼴이 아니면 학습 도중 local optimum에 stuck되어 학습이 일어나지 않을 수 있다.
 
 2. data preprocessiong
-class labels를 결정하는 Input attribute, X1,X2,X3,...,Xn이라 할때, 임의의 attribute Xk의 절대량이 다른 attribute의 절대량을 dominate하는 경우(크기의 차가 매우 큰 경우), 이 데이터를 기반으로 GradientDescentOptimizer를 이용하는 경우, 학습 도중 절대량이 작은 attribute의 weight축으로 overshooting 될 가능성이 매우 크므로, 이런 경우 학습 전에 trainning data를 preprocessing(정규화,normalization,standardization). Xj = (Xj -MEANj) / 표준편차j
+class labels를 결정하는 Input attribute, X1,X2,X3,...,Xn이라 할때, 임의의 attribute Xk의 절대량이 다른 attribute의 절대량을 dominate하는 경우(크기의 차가 매우 큰 경우), 이 데이터를 기반으로 GradientDescentOptimizer를 이용하는 경우, 학습 도중 절대량이 작은 attribute의 weight축으로 overshooting 될 가능성이 매우 크므로, 이런 경우 학습 전에 trainning data를 preprocessing(정규화,normalization,standardization).
+(Normalization : Xj = (Xj -MEANj) / 표준편차j)
 
 3. overfitting
 머신러닝의 고질적인 문제로써, 학습모델이 training data set에 너무 치중하게 학습한 나머지, 실제 테스트 데이터에 대해서 낮은 성능을 보이는 경우를 말한다. 이것을 해결하기 위해서 트레이닝 데이터의 수를 늘리거나 Regularization 방법을 사용하여 문제를 최소화한다.
@@ -264,12 +265,14 @@ regular_st = 0.0001 * tf.square(W) # regularization strength
 cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(hypothesis))) + regular_st
 </code></pre>
 즉, cost function에 가중치를 두어 overfitting을 막는다.
-regularization_strength값이 클 수록 overfitting 되는 정도가 적으나, 학습이 정확히 이루어지지 않을 수 있다. 일반적으로, 가중치 설정을 안하는 경우(앞선 예제)regularization_strength가0임을 뜻한다.
+regularization_strength값이 클 수록 overfitting 되는 정도가 적으나, 학습이 정확히 이루어지지 않을 수 있다. 일반적으로, 가중치 설정을 안하는 경우(앞선 예제)regularization_strength가 0 임을 뜻한다.
 
 
 # Lab7-2
 MNIST data
-MINIST data는 불규칙적인 0~9를 나타내는 손글씨를 정확한 0~9로 인식하는 머신러닝 예제이다이 과정에서 training data set과 test data set를 별도로 분리하여 학습과 테스트를 진행하며, 다음과 같은 단어들에 대한 개념이 필요하다.
+MINIST data는 불규칙적인 0~9를 나타내는 손글씨를 정확한 0~9로 인식하는 머신러닝 예제이다.
+이 과정에서 training data set과 test data set를 별도로 분리하여 학습과 테스트를 진행하며, 다음과 같은 단어들에 대한 개념이 필요하다.
+
 - epoch
 one forward pass and one backward pass of all the training examples
 - batch size
