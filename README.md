@@ -274,10 +274,13 @@ MINIST data는 불규칙적인 0-9를 나타내는 손글씨를 정확한 0-9로
 이 과정에서 training data set과 test data set를 별도로 분리하여 학습과 테스트를 진행하며, 다음과 같은 단어들에 대한 개념이 필요하다.
 
 - epoch
+
 one forward pass and one backward pass of all the training examples
 - batch size
+
 the number of training examples in one forward/backward pass. The higher the batch size, the more memory space you'll need.
 - iterations
+
 number of passes, each pass using batch size number of examples.
 
 if you have 1000 training examples, and your batch size is 500, then it will take 2 iterations to complete 1 epoch.
@@ -294,7 +297,7 @@ with tf.Session() as sess:
         
         for i in range(total_batch):
             batch_xs, batch_ys = mnist.train.next_batch(batch_size) # dataSet에서 batch만큼의 데이터를 가져옴
-            cost_val, _ = sess.run([cost,optimizer],feed_dict={
+#            cost_val, _ = sess.run([cost,optimizer],feed_dict={
                     X : batch_xs,
                     Y : batch_ys
                 })
@@ -312,3 +315,6 @@ with tf.Session() as sess:
 
 2. 실행 결과
 ![lab7-2](/lab7-2/result/lab7-2_result.png)
+
+### Deep-Learning, Neural Network에 대한 내용은
+
