@@ -3,6 +3,8 @@
 - https://www.youtube.com/user/hunkims
 ## About Reinforcement Leaning,
 - https://github.com/HyunSu-Jin/Reinforcement-Learning
+## About Deep-Learning, Neural Network
+- https://github.com/HyunSu-Jin/Deep-Learning.git
 ## Lab1
 Tensor의 정의, Tensor간 add,mul,sub등 연산을 수행하는 방법
 
@@ -316,5 +318,4 @@ with tf.Session() as sess:
 2. 실행 결과
 ![lab7-2](/lab7-2/result/lab7-2_result.png)
 
-### Deep-Learning, Neural Network에 대한 내용은
-
+### lab9-1~ Neural Network, Deep Learning
