@@ -1,5 +1,5 @@
 # Machine-Learning
-- 모두를 위한 딥러닝 강좌 + 개인프로젝트 저장
+- 모두를 위한 딥러닝 강의( 김성훈교수님)
 - https://www.youtube.com/user/hunkims
 ## About Reinforcement Leaning,
 - https://github.com/HyunSu-Jin/Reinforcement-Learning
