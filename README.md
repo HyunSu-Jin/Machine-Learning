@@ -318,4 +318,4 @@ with tf.Session() as sess:
 2. 실행 결과
 ![lab7-2](/lab7-2/result/lab7-2_result.png)
 
-### lab9-1~ Neural Network, Deep Learning
+### lab9-1~ Neural Network, Deep Learning에 관한 내용은 https://github.com/HyunSu-Jin/Deep-Learning.git 에서 다루었습니다.
